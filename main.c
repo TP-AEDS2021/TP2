@@ -27,6 +27,8 @@ int main()
       return 0;
       break;
 
+    case '1':
+
     default:
       break;
     }
