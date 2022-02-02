@@ -24,5 +24,4 @@ void menu()
   puts("Opcoes:");
   puts("0 - Sair");
   puts("1 - Ler arquivo de testes");
-  puts("2 - Entradas por teclado");
 }
