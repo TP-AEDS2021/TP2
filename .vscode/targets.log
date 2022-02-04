@@ -1,0 +1,361 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.82.90
+# Built for i686-pc-mingw32
+# Copyright (C) 1988-2012 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+ 
+
+# Make data base, printed on Thu Feb 03 20:40:28 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(patsubst %\,%,$(dir $<)))
+# automatic
+?F = $(notdir $?)
+# environment
+WSLENV = WT_SESSION::WT_PROFILE_ID
+# default
+.SHELLFLAGS := -c
+# makefile
+MAKEFLAGS = Rrqp
+# environment
+VSCODE_LOG_NATIVE = false
+# automatic
+?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
+# automatic
+@D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
+# environment
+HOMEDRIVE = C:
+# automatic
+@F = $(notdir $@)
+# automatic
+^D = $(patsubst %/,%,$(patsubst %\,%,$(dir $^)))
+# makefile
+CURDIR := d:/facul/aeds/TP_2
+# default
+SHELL := sh.exe
+# environment
+CLION = D:\programas\CLion 2021.2.3\bin;
+# environment
+WINDIR = C:\WINDOWS
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{},"_languagePackSupport":true}
+# environment
+ONEDRIVE = C:\Users\Jo�o Pedro\OneDrive
+# environment
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL
+# makefile (from 'makefile', line 1)
+MAKEFILE_LIST :=  makefile
+# environment
+FPS_B 
+ROWSER_USER_PROFILE_STRING = Default
+# environment
+TMP = C:\Users\JOOPED~1\AppData\Local\Temp
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+PROGRAMW6432 = C:\Program Files
+# environment
+PROGRAMDATA = C:\ProgramData
+# environment
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-52033490-08e5-4f19-b3dd-e52a45bd7239-sock
+# environment
+VSCODE_CWD = D:\facul\aeds\TP_2
+# environment
+PATH = C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;D:\src\mingw\bin;D:\programas\git\cmd;C:\Program Files\dotnet\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Users\Jo�o Pedro\AppData\Local\Pub\Cache\bin;C:\Users\'Jo�o Pedro'\AppData\Local\Pub\Cache\bin;D:\src\fvm;D:\src\node\;D:\programas\python3.9\Scripts\;D:\programas\python3.9\;C:\Users\Jo�o Pedro\AppData\Local\Microsoft\WindowsApps;D:\programas\vs code\bin;C:\Program Files\heroku\bin;C:\Users\Jo�o Pedro\.dotnet\tools;C:\Users\Jo�o Pedro\AppData\Local\Yarn\bin;C:\tools\dart-sdk\bin;C:\Users\Jo�o Pedro\AppData\Roaming\Pub\Cache\bin;C:\tools\flutter\bin;C:\Users\Jo�o Pedro\AppData\Roaming\npm;D:\programas\CLion 2021.2.3\bin;C:\Users\Jo�o Pedro\AppData\Local\GitHubDesktop\bin
+# environment
+COMMONPROGRAMW6432 = C:\Program Files\Common Files
+# environment
+LC_ALL = C
+# environment
+CHOCOLATEYLASTPATHUPDATE = 132718175743188378
+# environment
+PROCESSOR_ARCHITECTURE = x86
+# environment
+USERPROFILE = C:\Users\Jo�o Pedro
+# environment
+CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
+# environment
+ALLUSERSPROFILE = C:\ProgramData
+# environment
+VSCODE_LOG_STACK = false
+# environment
+NUMBER_OF_PROCESSORS = 4
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver
+# automatic
+%F = $(notdir $%)
+# environment
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_19620_CLPHDCEFOIBIGLLK
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+COMPUTERNAME = NOTE-JP
+# environment
+PROGRAMFILES = C:\Program Files (x86)
+# environment
+DRIVERDATA = C:\Windows\System32\Drivers\DriverData
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+WT_SESSION = 9be8bef9-2083-4dfe-90dc-4be4cf5643b1
+# environment
+USERNAME = JP
+# environment
+PUBLIC = C:\Users\Public
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
+# environment
+CHOCOLATEYTOOLSLOCATION = C:\tools
+# environment
+VSCODE_CLI = 1
+# environment
+VSCODE_CODE_CACHE_PATH = C:\Users\Jo�o Pedro\AppData\Roaming\Code\CachedData\5554b12acf27056905806867f251c859323ff7e9
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+COMMONPROGRAMFILES = C:\Program Files (x86)\Common Files
+# environment
+LOGONSERVER = \\NOTE-JP
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# environment
+USERDOMAIN = NOTE-JP
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+JAVA_HOME = D:\src\java
+# default
+MAKE_VERSION := 3.82.90
+# makefile
+.DEFAULT_GOAL := all
+# environment
+PROGRAMFILES(X86) = C:\Program Files (x86)
+# automatic
+%D = $(patsubst %/,%,$(patsubst %\,%,$(dir $%)))
+# environment
+LOCALAPPDATA = C:\Users\Jo�o Pedro\AppData\Local
+# environment
+PSMODULEPATH = C:\Users\Jo�o Pedro\OneDrive\Documentos\WindowsPowerShell\Modules;C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+# default
+MAKE_COMMAND := ma 
+ke.exe
+# environment
+PROCESSOR_ARCHITEW6432 = AMD64
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# environment
+PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 142 Stepping 9, GenuineIntel
+# environment
+OS = Windows_NT
+# environment
+VSCODE_IPC_HOOK = \\.\pipe\eae0138d510fc4ada84cadd5395fb695-1.64.0-main-sock
+# environment
+HOMEPATH = \Users\Jo�o Pedro
+# environment
+COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
+# environment
+PROMPT = $P$G
+# environment
+MFLAGS = -Rrqp
+# automatic
+*D = $(patsubst %/,%,$(patsubst %\,%,$(dir $*)))
+# environment
+SYSTEMROOT = C:\WINDOWS
+# automatic
++D = $(patsubst %/,%,$(patsubst %\,%,$(dir $+)))
+# automatic
++F = $(notdir $+)
+# environment
+APPDATA = C:\Users\Jo�o Pedro\AppData\Roaming
+# environment
+TEMP = C:\Users\JOOPED~1\AppData\Local\Temp
+# environment
+WT_PROFILE_ID = {61c54bbd-c2c6-5271-96e7-009a87ff44bf}
+# environment
+COMSPEC = C:\WINDOWS\system32\cmd.exe
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# environment
+ANDROID_SDK_ROOT = D:\src\android_sdk
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+SYSTEMDRIVE = C:
+# environment
+PROCESSOR_REVISION = 8e09
+# default
+.RECIPEPREFIX := 
+# environment
+LANG = C
+# environment
+PROCESSOR_LEVEL = 6
+# environment
+FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+# environment
+VSCODE_PID = 19620
+# environment
+USERDOMAIN_ROAMINGPROFILE = NOTE-JP
+# variable set hash-table stats:
+# Load=100/1024=10%, Rehash=0, Collisions=13/121=11%
+
+# Pattern-specific  
+Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# C:\Users\Jo�o Pedro\.dotnet\tools: could not be stat'd.
+# D:\src\node\ (key D:/src/node/, mtime 1633435639): 11 files, no impossibilities.
+# C:\tools\flutter\bin (key C:/tools/flutter/bin, mtime 1622156157): 9 files, no impossibilities.
+# C:\Program Files (x86)\Yarn\bin\ (key C:/Program Files (x86)/Yarn/bin/, mtime 1626217398): 7 files, no impossibilities.
+# D:\programas\CLion 2021.2.3\bin (key D:/programas/CLion 2021.2.3/bin, mtime 1 
+637709393): 34 files, no impossibilities.
+# C:\WINDOWS\System32\WindowsPowerShell\v1.0\ (key C:/WINDOWS/System32/WindowsPowerShell/v1.0/, mtime 1620144206): 31 files, no impossibilities.
+# D:\programas\python3.9\ (key D:/programas/python3.9/, mtime 1619547122): 18 files, no impossibilities.
+# . (key d:/facul/aeds/TP_2, mtime 1643931604): 14 files, no impossibilities.
+# C:\Users\Jo�o Pedro\AppData\Local\Pub\Cache\bin (key C:/Users/Jo�o Pedro/AppData/Local/Pub/Cache/bin, mtime 1636299918): 5 files, no impossibilities.
+# C:\Users\Jo�o Pedro\AppData\Roaming\Pub\Cache\bin: could not be stat'd.
+# C:\WINDOWS\System32\OpenSSH\: could not be stat'd.
+# C:\WINDOWS (key C:/WINDOWS, mtime 1642551126): 109 files, no impossibilities.
+# D:\programas\vs code\bin (key D:/programas/vs code/bin, mtime 1643926272): 4 files, no impossibilities.
+# C:\Program Files\heroku\bin (key C:/Program Files/heroku/bin, mtime 1625160717): 4 files, no impossibilities.
+# C:\ProgramData\chocolatey\bin (key C:/ProgramData/chocolatey/bin, mtime 163 
+9581007): 15 files, no impossibilities.
+# D:\src\mingw\bin (key D:/src/mingw/bin, mtime 1639526296): 124 files, no impossibilities.
+# D:\programas\git\cmd (key D:/programas/git/cmd, mtime 1625160698): 8 files, no impossibilities.
+# C:\Users\Jo�o Pedro\AppData\Roaming\npm (key C:/Users/Jo�o Pedro/AppData/Roaming/npm, mtime 1641397156): 51 files, no impossibilities.
+# C:\Program Files\Microsoft SQL Server\130\Tools\Binn\ (key C:/Program Files/Microsoft SQL Server/130/Tools/Binn/, mtime 1626223147): 4 files, no impossibilities.
+# C:\WINDOWS\System32\Wbem (key C:/WINDOWS/System32/Wbem, mtime 1642550625): 155 files, no impossibilities.
+# C:\Users\Jo�o Pedro\AppData\Local\Microsoft\WindowsApps (key C:/Users/Jo�o Pedro/AppData/Local/Microsoft/WindowsApps, mtime 1643901754): 25 files, no impossibilities.
+# C:\Users\'Jo�o Pedro'\AppData\Local\Pub\Cache\bin: could not be stat'd.
+# C:\tools\dart-sdk\bin (key C:/tools/dart-sdk/bin, mtime 1623237963): 15 files, no impossibilities.
+# D:\programas\python3.9\Scripts\ (key D:/programas/python3.9/Scripts/, mtime 1633436982): 20 files, no impossibilities.
+# C:\Program Files\Common Files\Oracle\Java\javapath (key C:/Program Files/Common Files/Oracle/Java/javapath, mtime 1625184574): 6 files, no impossibilities.
+# C:\Program Files\dotnet\ (key C:/Program Files/dotnet/, mtime 1632953736): 11 files, no impossibilities.
+# C:\Users\Jo�o Pedro\AppData\Local\Yarn\bin (key C:/Users/Jo�o Pedro/AppData/Local/Yarn/bin, mtime 1620654632): 2 files, no impossibilities.
+# C:\WINDOWS\system32 (ke 
+y C:/WINDOWS/system32, mtime 1643211636): 3018 files, no impossibilities.
+# C:\Users\Jo�o Pedro\AppData\Local\GitHubDesktop\bin (key C:/Users/Jo�o Pedro/AppData/Local/GitHubDesktop/bin, mtime 1643723889): 4 files, no impossibilities.
+# D:\src\fvm (key D:/src/fvm, mtime 1627344786): 3 files, no impossibilities.
+
+# 3707 files, no impossibilities in 30 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+all: permuta
+#  Command line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+#  recipe to execute (from 'makefile', line 2):
+	gcc -g main.c -o main
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-02-03 20:40:21
+#  File has been updated.
+#  Successfully updated.
+
+per 
+muta:
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := permuta
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := 
+# automatic
+# | := 
+# automatic
+# < := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from 'makefile', line 5):
+	gcc -g ./src/permuta.c -o permuta
+
+# Not a tar 
+get:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+run: clean all
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 11):
+	./main
+
+clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 8):
+	del *.o *.exe *.h main
+
+# files hash-tab 
+le stats:
+# Load=7/1024=1%, Rehash=0, Collisions=0/23=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 7 (4) / strings = 3663 / storage = 54447 B / avg = 14 B
+# current buf: size = 8174 B / used = 5479 B / count = 373 / avg = 14 B
+# other used: total = 46273 B / count = 3290 / avg = 14 B
+# other free: total = 76 B / max = 23 B / min = 8 B / avg = 12 B
+
+# strcache performance: lookups = 3754 / hit rate = 2%
+# hash-table stats:
+# Load=3663/ 
+8192=45%, Rehash=0, Collisions=1392/3754=37%
+# Finished Make data base on Thu Feb 03 20:40:28 2022
+
+ 
