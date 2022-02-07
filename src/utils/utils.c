@@ -27,3 +27,10 @@ void menu()
   puts("1 - Ler arquivo de testes");
   RESETC();
 }
+void debug(int debugindex)
+{
+
+  RED();
+  printf("Debug: %d\n", debugindex);
+  RESETC();
+}

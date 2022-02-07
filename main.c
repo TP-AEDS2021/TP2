@@ -16,6 +16,198 @@
 
 #include "./src/utils/utils.c"
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 int main()
 {
   FILE *file, *outputfile;
@@ -24,6 +216,7 @@ int main()
   int veichleCapacity;
   int **distance;
   int **arr;
+  int *demand;
   do
   {
     cls();
@@ -67,19 +260,19 @@ int main()
       RESETC();
       int nline = 0;
       char buffer[fileStringLength];
-      while (fgets(buffer, fileStringLength, file))
+      while (fgets(buffer, fileStringLength, file) && !ferror(file))
       {
         if (nline == 0)
         { // Numero de cidades
           citiesVectorLenght = atoi(buffer);
-          arr = (int **)malloc(sizeof(int *) * citiesVectorLenght + 1);
-          for (int i = 0; i < citiesVectorLenght + 1; i++)
+          arr = (int **)malloc(sizeof(int *) * citiesVectorLenght);
+          for (int i = 0; i < citiesVectorLenght; i++)
           {
-            arr[i] = (int *)malloc(sizeof(int) * citiesVectorLenght + 1);
+            arr[i] = (int *)malloc(sizeof(int) * citiesVectorLenght);
           }
-          for (int i = 0; i < citiesVectorLenght + 1; i++)
+          for (int i = 0; i < citiesVectorLenght; i++)
           {
-            for (int j = 0; j < citiesVectorLenght + 1; j++)
+            for (int j = 0; j < citiesVectorLenght; j++)
             {
               arr[i][j] = 0;
             }
@@ -91,6 +284,14 @@ int main()
         else if (nline == 1)
         { // Capacidade do veiculo
           veichleCapacity = atoi(buffer);
+          if (veichleCapacity <= 0)
+          {
+            RED()
+            printf("Capacidade do veiculo invalida\n");
+            RESETC();
+            input();
+            break;
+          }
           YELLOW();
           printf("Capacidade do veiculo: %d\n", veichleCapacity);
           RESETC();
@@ -99,7 +300,7 @@ int main()
         {
           // demanda de cada cidade
           int i = 0;
-          int demand[citiesVectorLenght];
+          demand = (int *)malloc(sizeof(int) * citiesVectorLenght);
           char *token = strtok(buffer, " ");
           while (token != NULL)
           {
@@ -107,12 +308,14 @@ int main()
             token = strtok(NULL, " ");
             i++;
           }
+
           YELLOW();
           printf("Demanda de cada cidade: ");
           for (int i = 0; i < citiesVectorLenght; i++)
           {
             printf("%d ", demand[i]);
           }
+
           RESETC();
         }
         else
@@ -120,22 +323,25 @@ int main()
           // distancia entre cada cidade
           int i, j, d;
           sscanf(buffer, "%d %d %d", &i, &j, &d);
+
           arr[i][j] = d;
           arr[j][i] = d;
         }
         nline++;
       }
-      puts("distancia entre cada cidade:");
+      YELLOW();
+      puts("\nDistancia entre cada cidade:");
+      PURPLE();
       printf("\n");
-      for (int i = 0; i < citiesVectorLenght + 1; i++)
+      for (int i = 0; i < citiesVectorLenght; i++)
       {
-        for (int j = 0; j < citiesVectorLenght + 1; j++)
+        for (int j = 0; j < citiesVectorLenght; j++)
         {
           printf("%d ", arr[i][j]);
         }
         printf("\n");
       }
-
+      RESETC();
       fclose(file);
       input();
       break;
