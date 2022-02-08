@@ -5,8 +5,9 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
+ 
 
-# Make data base, printed on Mon Feb 07 20:18:12 2022
+# Make data base, printed on Mon Feb 07 21:42:47 2022
 
 # Variables
 
@@ -31,7 +32,8 @@ HOMEDRIVE = C:
 # automatic
 ^D = $(patsubst %/,%,$(patsubst %\,%,$(dir $^)))
 # makefile
-CURDIR := d:/facul/aeds/TP_2
+CUR 
+DIR := d:/facul/aeds/TP_2
 # default
 SHELL := sh.exe
 # environment
@@ -71,7 +73,8 @@ USERPROFILE = C:\Users\Jo�o Pedro
 # environment
 CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
 # environment
-ALLUSERSPROFILE = C:\ProgramData
+ALLUSERSPROFILE = 
+ C:\ProgramData
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -168,7 +171,8 @@ SYSTEMROOT = C:\WINDOWS
 APPDATA = C:\Users\Jo�o Pedro\AppData\Roaming
 # environment
 TEMP = C:\Users\JOOPED~1\AppData\Local\Temp
-# environment
+# envir 
+onment
 COMSPEC = C:\WINDOWS\system32\cmd.exe
 # default
 MAKEFILES := 
@@ -197,7 +201,8 @@ VSCODE_PID = 1952
 # environment
 USERDOMAIN_ROAMINGPROFILE = NOTE-JP
 # variable set hash-table stats:
-# Load=93/1024=9%, Rehash=0, Collisions=11/114=10%
+# Load=93/10 
+24=9%, Rehash=0, Collisions=11/114=10%
 
 # Pattern-specific Variable Values
 
@@ -212,7 +217,7 @@ USERDOMAIN_ROAMINGPROFILE = NOTE-JP
 # D:\programas\CLion 2021.2.3\bin (key D:/programas/CLion 2021.2.3/bin, mtime 1637709393): 34 files, no impossibilities.
 # C:\WINDOWS\System32\WindowsPowerShell\v1.0\ (key C:/WINDOWS/System32/WindowsPowerShell/v1.0/, mtime 1620144206): 31 files, no impossibilities.
 # D:\programas\python3.9\ (key D:/programas/python3.9/, mtime 1619547122): 18 files, no impossibilities.
-# . (key d:/facul/aeds/TP_2, mtime 1644001774): 14 files, no impossibilities.
+# . (key d:/facul/aeds/TP_2, mtime 1644280909): 20 files, no impossibilities.
 # C:\Users\Jo�o Pedro\AppData\Local\Pub\Cache\bin (key C:/Users/Jo�o Pedro/AppData/Local/Pub/Cache/bin, mtime 1636299918): 5 files, no impossibilities.
 # C:\Users\Jo�o Pedro\AppData\Roaming\Pub\Cache\bin: could not be stat'd.
 # C:\WINDOWS\System32\OpenSSH\: could not be stat'd.
@@ -236,7 +241,7 @@ USERDOMAIN_ROAMINGPROFILE = NOTE-JP
 # C:\Users\Jo�o Pedro\AppData\Local\GitHubDesktop\bin (key C:/Users/Jo�o Pedro/AppData/Local/GitHubDesktop/bin, mtime 1643723889): 4 files, no impossibilities.
 # D:\src\fvm (key D:/src/fvm, mtime 1627344786): 3 files, no impossibilities.
 
-# 3710 files, no impossibilities in 30 directories.
+# 3716 files, no impossibilities in 30 directories.
 
 # Implicit Rules
 
@@ -247,11 +252,28 @@ USERDOMAIN_ROAMINGPROFILE = NOTE-JP
 all: permuta
 #  Command line target.
 #  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
 #  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
+# automatic
+# @ := all
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := permuta
+# automatic
+# | := 
+# automatic
+# < := permuta
+# automatic
+# ^ := permuta
+# automatic
+# ? := permuta
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
 #  recipe to execute (from 'makefile', line 2):
 	gcc -g main.c -o main
 
@@ -264,34 +286,15 @@ all: permuta
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-02-03 20:40:21
+#  Last modified 2022-02-07 21:42:38
 #  File has been updated.
 #  Successfully updated.
 
 permuta:
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: ''
-#  File does not exist.
+#  Last modified 2022-02-07 20:43:39
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := permuta
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
-# + := 
-# automatic
-# | := 
-# automatic
-# < := 
-# automatic
-# ^ := 
-# automatic
-# ? := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  Successfully updated.
 #  recipe to execute (from 'makefile', line 5):
 	gcc -g ./src/permuta.c -o permuta
 
@@ -301,7 +304,7 @@ permuta:
 #  Modification time never checked.
 #  File has not been updated.
 
-run: clean all
+run: all
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -313,25 +316,39 @@ clean:
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'makefile', line 8):
-	del *.o *.exe *.h main
+	rm *.o *.exe *.h main *.out
+
+teste:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 14):
+	gcc teste.c -o teste
+
+run_teste: teste
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 16):
+	./teste
 
 # files hash-table stats:
-# Load=7/1024=1%, Rehash=0, Collisions=0/23=0%
+# Load=9/1024=1%, Rehash=0, Collisions=0/25=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
-# No general ('VPATH' variable) search path.
+# No general ('VPATH' var 
+iable) search path.
 
-# strcache buffers: 7 (6) / strings = 3666 / storage = 54472 B / avg = 14 B
-# current buf: size = 8174 B / used = 5464 B / count = 374 / avg = 14 B
-# other used: total = 46298 B / count = 3292 / avg = 14 B
-# other free: total = 36 B / max = 12 B / min = 1 B / avg = 6 B
+# strcache buffers: 7 (6) / strings = 3672 / storage = 54517 B / avg = 14 B
+# current buf: size = 8174 B / used = 5513 B / count = 376 / avg = 14 B
+# other used: total = 46343 B / count = 3296 / avg = 14 B
+# other free: total = 40 B / max = 12 B / min = 3 B / avg = 6 B
 
-# strcache performance: looku 
-ps = 3757 / hit rate = 2%
+# strcache performance: lookups = 3767 / hit rate = 2%
 # hash-table stats:
-# Load=3666/8192=45%, Rehash=0, Collisions=1398/3757=37%
-# Finished Make data base on Mon Feb 07 20:18:12 2022
+# Load=3672/8192=45%, Rehash=0, Collisions=1408/3767=37%
+# Finished Make data base on Mon Feb 07 21:42:47 2022
 
  

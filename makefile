@@ -5,7 +5,12 @@ permuta:
 	gcc -g ./src/permuta.c -o permuta
 
 clean:
-	del *.o *.exe *.h main
+	rm *.o *.exe *.h main *.out
 
-run: clean all 
+run: all 
 	./main
+
+teste: 
+	gcc teste.c -o teste
+run_teste: teste
+	./teste
