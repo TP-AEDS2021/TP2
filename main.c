@@ -343,6 +343,9 @@ int main()
       }
       RESETC();
       fclose(file);
+      outputfile = fopen('output.txt', 'a');
+      struct tm *time = currentTime();
+      fprintf("%d/%d/%d-%d:%d:%d", time->tm_mday, time->tm_mon, time->tm_year, time->tm_hour, time->min, time->sec);
       input();
       break;
 
