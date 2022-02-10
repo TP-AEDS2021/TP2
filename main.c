@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include <time.h>
 #ifdef __APPLE__
 #include <curses.h>
 #elif __WIN32
@@ -17,58 +18,80 @@
 
 #include "./src/utils/utils.c"
 
-int nextPerm(int perm[], int k, int n)
+/* Função que verifica se o número é repetido. */
+char eh_sem_repeticao(int *num, int r)
 {
-  bool invalid = true;
-  int subject, i;
-  if (k == 1)
+  int i, j;
+
+  for (i = 0; i < r; i++)
   {
-    if (perm[0] == n - 1)
-      return 0;
-    else
+    for (j = 0; j < r && i != j; j++)
     {
-      perm[0] = perm[0] + 1;
-      return 1;
-    }
-  }
-  subject = perm[k - 1] + 1;
-  while (invalid)
-  {
-    if (subject == n)
-    {
-      subject = 0;
-      if (!nextPerm(perm, k - 1, n))
-        return 0;
-    }
-    for (i = 0; i < k - 1; i++)
-    {
-      if (perm[i] != subject)
-        invalid = false;
-      else
+      if (num[i] == num[j])
       {
-        invalid = true;
-        subject++;
-        break;
+        return 0;
       }
     }
   }
-  perm[k - 1] = subject;
+
   return 1;
 }
 
+ /* Função que seleciona as cidades que serão visitadas. */
+int *selecPerm(int *cidades, int *visitadas, int n)
+{ // V = cidades nao visitadas
+  // contador para quantas cidades nao foram visitadas
+  int count = 0;
+  // conta o numero de cidades que nao foram visitadas
+  for (int i = 0; i < n; i++)
+  {
+    if (visitadas[i] == 0)
+      count++;
+  }
+  // cria e preenche o vetor que sera permutado, apenas com as cidades que nao foram visitadas
+  int *perm = (int *)malloc(sizeof(int) * count); // cria o vetor de tamanho V
+  int k = 0;                                      // variavel para continuar a contagem do vetor com todas as cidades de onde parou
+  for (int i = 0; i < count; i++)                 // preenche o vetor de tamanho V com as cidades que nao foram visitadas
+  {
+    for (int j = k; j < n; j++)
+    {
+      if (visitadas[j] == 0)
+      {
+        perm[i] = cidades[j];
+        k = j + 1;
+        break;
+      }
+      k = j + 1;
+    }
+  }
+  return perm;
+}
 
-
-
+/* Função que calcula o numero de cidades que não foram visitadas. */
+int calcNaoVisitadas(int *cidades, int numeroDeCidades)
+{
+  // V = cidades nao visitadas
+  // contador para quantas cidades nao foram visitadas
+  int count = 0;
+  // conta o numero de cidades que nao foram visitadas
+  for (int i = 0; i < numeroDeCidades; i++)
+  {
+    if (visitadas[i] == 0)
+      count++;
+  }
+  return count;
+}
 
 int main()
 {
   FILE *file, *outputfile;
   char filename[fileStringLength];
-  int citiesVectorLenght;
-  int veichleCapacity;
   int **distance;
-  int **arr;
-  int *demanda;
+  int **matrizDistancias;
+  int *vetorDemandas;
+
+  int nmroCaminhoes, capacidadeCaminhoes, nmroCidades, nmroCidadesNaoVisitadas, temEstrada, demandaRota, distanciaRota, distanciaMenorRota, demandaTotal = 0;
+
   do
   {
     cls();
@@ -76,7 +99,9 @@ int main()
 
     char option = input();
 
-    switch (option)
+    
+
+        switch (option)
     {
     case '0':
       exit(0);
@@ -106,6 +131,7 @@ int main()
         input();
         break;
       }
+      input();
       GREEN();
       printf("Arquivo lido com sucesso\t (pressione enter para continuar)\n");
       input();
@@ -116,31 +142,38 @@ int main()
       {
         if (nline == 0)
         { // Numero de cidades
-          citiesVectorLenght = atoi(buffer);
-          arr = (int **)malloc(sizeof(int *) * citiesVectorLenght);
-          for (int i = 0; i < citiesVectorLenght; i++)
+          nmroCidades = atoi(buffer);
+          matrizDistancias = (int **)malloc(sizeof(int *) * nmroCidades);
+          if (matrizDistancias == NULL)
           {
-            arr[i] = (int *)malloc(sizeof(int) * citiesVectorLenght);
+            perror("malloc");
+            return -1;
           }
-          for (int i = 0; i < citiesVectorLenght; i++)
+
+          for (int i = 0; i < nmroCidades; i++)
           {
-            for (int j = 0; j < citiesVectorLenght; j++)
+            matrizDistancias[i] = (int *)malloc(sizeof(int) * nmroCidades);
+          }
+          for (int i = 0; i < nmroCidades; i++)
+          {
+            for (int j = 0; j < nmroCidades; j++)
             {
-              arr[i][j] = -1;
+              matrizDistancias[i][j] = -1;
               if(i == j)
-                arr[i][j] = 0;
+                matrizDistancias[i][j] = 0;
             }
           }
 
+          
 
           YELLOW();
-          printf("Numero de cidades: %d\n", citiesVectorLenght);
+          printf("Numero de cidades: %d\n", nmroCidades);
           RESETC();
         }
         else if (nline == 1)
         { // Capacidade do veiculo
-          veichleCapacity = atoi(buffer);
-          if (veichleCapacity <= 0)
+          capacidadeCaminhoes = atoi(buffer);
+          if (capacidadeCaminhoes <= 0)
           {
             RED()
             printf("Capacidade do veiculo invalida\n");
@@ -149,27 +182,29 @@ int main()
             break;
           }
           YELLOW();
-          printf("Capacidade do veiculo: %d\n", veichleCapacity);
+          printf("Capacidade do veiculo: %d\n", capacidadeCaminhoes);
           RESETC();
         }
         else if (nline == 2)
         {
           // demanda de cada cidade
           int i = 0;
-          demanda = (int *)malloc(sizeof(int) * citiesVectorLenght);
+          vetorDemandas = (int *)malloc(sizeof(int) * nmroCidades);
           char *token = strtok(buffer, " ");
           while (token != NULL)
           {
-            demanda[i] = atoi(token);
+            vetorDemandas[i] = atoi(token);
             token = strtok(NULL, " ");
             i++;
           }
 
+          
+
           YELLOW();
           printf("Demanda de cada cidade: ");
-          for (int i = 0; i < citiesVectorLenght; i++)
+          for (int i = 0; i < nmroCidades; i++)
           {
-            printf("%d ", demanda[i]);
+            printf("%d ", vetorDemandas[i]);
           }
 
           RESETC();
@@ -180,8 +215,8 @@ int main()
           int i, j, d;
           sscanf(buffer, "%d %d %d", &i, &j, &d);
 
-          arr[i][j] = d;
-          arr[j][i] = d;
+          matrizDistancias[i][j] = d;
+          matrizDistancias[j][i] = d;
         }
         nline++;
       }
@@ -189,99 +224,237 @@ int main()
       puts("\nDistancia entre cada cidade:");
       PURPLE();
       printf("\n");
-      for (int i = 0; i < citiesVectorLenght -1; i++)
+      for (int i = 0; i < nmroCidades; i++)
       {
-        for (int j = 0; j < citiesVectorLenght - 1 ; j++)
+        for (int j = 0; j < nmroCidades ; j++)
         {
-          printf("%d ", arr[i][j]);
+          printf("%d ", matrizDistancias[i][j]);
         }
         printf("\n");
       }
       RESETC();
       fclose(file);
+
       // algoritmo de permutação
 
       #pragma region PERMUTACAO
 
+      for (int i = 0; i < nmroCidades; i++)
+      {
+        demandaTotal += vetorDemandas[i];
+      }
+      nmroCaminhoes = demandaTotal / capacidadeCaminhoes;
+      printf("\nNumero de caminhoes: %d\n", nmroCaminhoes);
+      int *vetorCidades = (int *)malloc(sizeof(int) * nmroCidades);
+      for (int i = 0; i < nmroCidades; i++) // preenche o vetor com 0 a N-1
+      {
+        vetorCidades[i] = i;
+      }
+      int *vetorVisitadas = (int *)malloc(sizeof(int) * nmroCidades);
+      vetorVisitadas[0] = 1;                // preenche a posicao 0 do vetor(deposito) com 1
+      for (int i = 1; i < nmroCidades; i++) // preenche as outras posicoes do vetor com 0
+      {
+        vetorVisitadas[i] = 0;
+      }
+      nmroCidadesNaoVisitadas = calcNaoVisitadas(vetorCidades, vetorVisitadas, nmroCidades);
+      int *vetorPerm = selecPerm(vetorCidades, vetorVisitadas, nmroCidades);
+      // vetor da rota atual
+      int *vetorRota;
+      // vetor da menor rota geral
+      int *vetorMenorRota;
 
-#pragma endregion
+      //matrix com as rotas a serem criadas
+      int **matrizRotas = (int **)malloc(sizeof(int *) * nmroCaminhoes);
+      
 
-      int capacity = veichleCapacity;
-      int qtd = 0;
-      int n = citiesVectorLenght - 1;
-      int *vetorpossivel = (int *) malloc((n -1) *sizeof(int));
-      for (int i = 0; i < n-1; n++)
-        vetorpossivel[i] = -1;
-
-      int *vetorcidades = (int *)malloc((n - 1) * sizeof(int));
-      for (int i = 0; i < n - 1;i++)
-        vetorcidades[i] = i;
-
-      int *permres = (int *)malloc((n - 1) * sizeof(int));
-      for (int i = 0; i < n - 1; i++)
-        permres[i] = i;
-      unsigned long long count = 0;
-      int i, j, a;
-      int **matriz;
-      int coluna = n, linha = 0;
-      for (int t = 0; t <= 1; t++)
-      { // quantidade de rotas(1) + inserção(2)
-        if (t == 1)
+      for (int i = 0; i < nmroCaminhoes; i++)
+      {
+        matrizRotas[i] = (int *)malloc(sizeof(int) * (nmroCidades + 1));
+        for (int j = 0; j <= nmroCidades; j++)
         {
-          linha = qtd; // linha = rotas possiveis
-          matriz = malloc(linha * sizeof(int *));
-        } // linhas da matriz alocadas dinamicamente
-        for (int p = 1; p <= n; p++)
-        { // arrajos de tamanho p a n
-          int k = p;
-          for (int p = 0; p <= n - 1; p++)
-            vetorcidades[p] = permres[p]; // atribuição de vetores
-          do                              // inicio do algoritmo
-          {
-            int tot = 0; // soma dos totais das demandas
-            for (a = 0; a < k - 1; a++)
-            {
-              printf("%d->", vetorcidades[a] + 1);
-              tot += demanda[vetorcidades[a]];
-            } // soma as demandas de cada arranjo
-            printf("%d", vetorcidades[k - 1] + 1);
-            tot += demanda[vetorcidades[k - 1]];
-            if (tot == veichleCapacity && t == 0)
-              qtd += 1; // quantidade de rotas possiveis
-            else if (tot == veichleCapacity && t == 1)
-            {
-              for (a = 0; a < k - 1; a++)
-                vetorpossivel[a] = vetorcidades[a] + 1; // insere a rota em um vetor de apoio
-              vetorpossivel[a] = vetorcidades[k - 1] + 1;
-              matriz[i] = malloc(coluna * sizeof(int)); // aloca colunas dinamicamente
-              for (j = 0; j < coluna; j++)
-              {
-                matriz[i][j] = vetorpossivel[j];
-              }    // insere na matriz as rotas possiveis
-              i++; // iterador
-            }
-            count++;                          // quantidade de arranjos
-            printf(" |Demanda =  %d\n", tot); // imprime a demanda de cada rota
-          } while (nextPerm(vetorcidades, k, n));
+          matrizRotas[i][j] = -1;
         }
       }
-      printf("\nNumero de arranjos: %llu\n", count); // qtd de arranjos feitos
-      puts("Unicas rotas possiveis:");
-      for (int k = 0; k < linha; k++)
-      { // imprime a matriz de rotas possiveis
-        printf("\n0 ");
-        for (int f = 0; f < coluna; f++)
+
+      
+
+      int count = 0;
+
+      time_t tempo_inicial, tempo_final;
+      tempo_inicial = 0;
+      tempo_final = 0;
+      // Seta o tempo inicial para 25/05/2011 14:20:35
+      struct tm *tempo_inicial_info = localtime(&tempo_inicial);
+      tempo_inicial = mktime(tempo_inicial_info);
+      
+
+      do
+      {
+        /* vetor que representara cada permutacao. */
+        
+        int *num;
+        /* quantidade de elementos do vetor. */
+        int n;
+        /* tamanho de cada permutacao. */
+        int r;
+        /* controle de loop. */
+        // int i, j ;
+
+        /* Obtem a quantidade de elementos do vetor. */
+        n = nmroCidadesNaoVisitadas;
+
+        /* Aloca espaco para o vetor num. Lembre-se
+         * que o vetor `num' representa um numero
+         * na base n com r algarismos. */
+
+        distanciaMenorRota = -1;
+        free(vetorMenorRota);
+        vetorMenorRota = (int *)malloc(sizeof(int) * (nmroCidades + 1));
+        for (int i = 0; i <= nmroCidades; i++)
         {
-          if (matriz[k][f] != -1)  printf("%d ", matriz[k][f]);
+          vetorMenorRota[i] = -1;
         }
-        printf("0");
-      };
-      input();
+        
+        for (r = 1; r <= n; r++)
+        {
+          num = (int *)calloc(r + 1, sizeof(int));
+          if (num == NULL)
+          {
+            perror("malloc");
+            return -1;
+          }
+          /* Inicio do algoritmo. */
+          while (num[r] == 0)
+          {
+            for (int i = 0; i < n; i++)
+            {
+              demandaRota = 0;
+              distanciaRota = 0;
+              free(vetorRota);
+              vetorRota = (int *)malloc(sizeof(int) * (r + 2));
+              vetorRota[0] = 0;
+              vetorRota[r + 1] = 0;
+              temEstrada = 1;
+              /* Mostra a permutacao na tela se
+               * e somente se `num' nao contem
+               * algarismos repetidos. */
+              if (eh_sem_repeticao(num, r))
+              {
+                for (int j = 0; j < r; j++)
+                {
+                  vetorRota[j + 1] = vetorPerm[num[j]];
+                  for (int k = 0; k < r; k++)
+                  {
+                    demandaRota += vetorDemandas[vetorPerm[num[j]]];
+                  }
+                }
+                demandaRota /= r;
+                if (demandaRota == capacidadeCaminhoes)
+                {
+                  for (int j = 0; j < r + 1; j++)
+                  {
+                    if (matrizDistancias[vetorRota[j]][vetorRota[j + 1]] == -1)
+                    {
+                      temEstrada = 0;
+                      break;
+                    }
+                  }
+                  if (temEstrada == 1)
+                  {
+                    for (int j = 0; j < r + 1; j++)
+                    {
+                      // if(matrizDistancias[vetorRota[j]][vetorRota[j + 1] != -1])
+                      //{
+                      distanciaRota += matrizDistancias[vetorRota[j]][vetorRota[j + 1]];
+                      //}
+                      // else if(matrizDistancias[vetorRota[j]][vetorRota[j + 1] == -1])
+                      //{
+
+                      //}
+                    }
+                    if (distanciaMenorRota == -1)
+                    {
+                      distanciaMenorRota = distanciaRota;
+                      for (int j = 0; j < r + 2; j++)
+                      {
+                        vetorMenorRota[j] = vetorRota[j];
+                      }
+                    }
+                    else if (distanciaRota < distanciaMenorRota)
+                    {
+                      distanciaMenorRota = distanciaRota;
+                    }
+                  }
+                }
+              }
+
+              /* incrementa o algarismo menos
+               * significativo. */
+              num[0]++;
+            }
+            
+            /* distribui os vai-uns. */
+            for (int i = 0; i < r; i++)
+            {
+              if (num[i] == n)
+              {
+                num[i] = 0;
+                num[i + 1]++;
+              }
+            }
+          }
+          
+
+          free(num);
+        }
+        
+
+        for (int i = 1; i < nmroCidades; i++)
+        {
+          if (vetorVisitadas[i] == 0)
+          {
+            for (int j = 1; j < r + 1; j++)
+            {
+              if (vetorCidades[i] == vetorMenorRota[j])
+                vetorVisitadas[i] = 1;
+            }
+          }
+        }
+        
+        nmroCidadesNaoVisitadas = calcNaoVisitadas(vetorCidades, nmroCidades);
+        vetorPerm = selecPerm(vetorCidades, vetorVisitadas, nmroCidades);
+        for (int i = 0; i < nmroCidades + 1; i++)
+        {
+          matrizRotas[count][i] = vetorMenorRota[i];
+        }
+        debug(nmroCidades);
+        debug(nmroCidadesNaoVisitadas);
+
+        count++;
+
+      } while (nmroCidadesNaoVisitadas != 0);
+      
+
+      // mostra a matriz de rotas
+      YELLOW();
+      printf("\nMatriz de rotas:\n");
+      for (int i = 0; i < nmroCaminhoes; i++)
+      {
+        for (int j = 0; j < nmroCidades + 1; j++)
+        {
+          printf("%d ", matrizRotas[i][j]);
+        }
+        printf("\n");
+      }
 
 #pragma endregion
+      struct tm *tempo_final_info = localtime(&tempo_final);
+      tempo_final = mktime(tempo_final_info);
+
+      // Calcula a diferença de tempo (segundos)
+      double dif = difftime(tempo_final, tempo_inicial);
+      printf("\nTempo de execucao: %.8lf segundos\n", dif);
       outputfile = fopen("output.txt", "a");
-      struct tm *time = currentTime();
-      fprintf(outputfile, "%d/%d/%d-%d:%d:%d\n", time->tm_mday, time->tm_mon, time->tm_year, time->tm_hour, time->tm_min, time->tm_sec);
       fclose(outputfile);
       input();
       break;

@@ -39,27 +39,81 @@
 
 </div>
 
+<div style="page-break-before:always">
+
+# O arquivo de testes
+
+> O arquivo de teste é um arquivo de texto que contém um numero inteiro positivo N, que define a quantidade de cidades do teste.
+>
+> Seguido de um numero Q, que define a capacidade de carga do caminhão.
+> 
+> Seguido de N inteiros que definem a demanda de cada cidade .
+>
+> e por fim
+>
+>
+
+```txt
+4
+5
+2 3 4 5
+0 1 1 
+0 2 3
+0 3 1
+1 2 3
+1 3 2
+2 3 4
+
+```
+
+</div>
+
 <div style="page-breake-before:always">
 
 # O funcionamento do programa
+
+> ### Inicia o programa
 
 ```
 Opcoes:
 0 - Sair
 1 - Ler arquivo de testes
 ```
->>ENTRADA:
+> ### ENTRADA:
 >1
->>   
+>  
 
-> > 1.  one
->>
->>     two
+> ### SAIDA: 
 
--> document
-  -> block_quote
-    -> paragraph
-         "Lorem ipsum dolor"
+```
+Opcoes:
+0 - Sair
+1 - Ler arquivo de testes
+Digite o nome do arquivo de testes:
+>>>
+```
+ 
+
+ > Digite o nome do arquivo a ser lido pelo programa com os valores para teste
+
+```
+Opcoes:
+0 - Sair
+1 - Ler arquivo de testes
+Digite o nome do arquivo de testes:
+>>> teste.txt
+```
+
+  > ### SAIDA:
+
+  ```
+  Opcoes:
+0 - Sair
+1 - Ler arquivo de testes
+Digite o nome do arquivo de testes:
+>> 001.txt
+Arquivo lido com sucesso         (pressione enter para continuar)
+```
 
 
 </div>
