@@ -48,12 +48,15 @@ Opcoes:
 0 - Sair
 1 - Ler arquivo de testes
 ```
+>>ENTRADA:
+>1
+>>   
 
-<Warning>
-*bar*
-</Warning>
+> > 1.  one
+>>
+>>     two
 
-# 
+
 
 </div>
 
