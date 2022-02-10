@@ -49,11 +49,9 @@ Opcoes:
 1 - Ler arquivo de testes
 ```
 
-
-> [!VIDEO](https://www.youtube.com/watch?v=0GQtOi23Eyw)
-
->Para gerar o arquivo PDF, é necessário ter instalado o programa `md-to-pdf` , caso não tenha a ferramenta de build de documentação instalada
-
+<Warning>
+*bar*
+</Warning>
 
 # 
 
