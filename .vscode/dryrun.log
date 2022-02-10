@@ -1,6 +1,6 @@
-make.exe --dry-run --keep-going --print-directory
+make.exe --dry-run --always-make --keep-going --print-directory
 make.exe: Entering directory 'd:/facul/aeds/TP_2'
+gcc -g ./src/permuta.c -o permuta
 gcc -g main.c -o main
- 
 make.exe: Leaving directory 'd:/facul/aeds/TP_2'
  

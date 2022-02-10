@@ -126,9 +126,13 @@ int main()
           {
             for (int j = 0; j < citiesVectorLenght; j++)
             {
-              arr[i][j] = 0;
+              arr[i][j] = -1;
+              if(i == j)
+                arr[i][j] = 0;
             }
           }
+
+
           YELLOW();
           printf("Numero de cidades: %d\n", citiesVectorLenght);
           RESETC();

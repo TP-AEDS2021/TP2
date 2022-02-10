@@ -5,9 +5,8 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Mon Feb 07 21:42:47 2022
+# Make data base, printed on Tue Feb 08 18:49:27 2022
 
 # Variables
 
@@ -32,8 +31,7 @@ HOMEDRIVE = C:
 # automatic
 ^D = $(patsubst %/,%,$(patsubst %\,%,$(dir $^)))
 # makefile
-CUR 
-DIR := d:/facul/aeds/TP_2
+CURDIR := d:/facul/aeds/TP_2
 # default
 SHELL := sh.exe
 # environment
@@ -57,7 +55,7 @@ PROGRAMW6432 = C:\Program Files
 # environment
 PROGRAMDATA = C:\ProgramData
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-789c5e54-e2ef-419b-9b91-58765668851a-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-9bbae93f-7d8a-4920-994a-847442553175-sock
 # environment
 VSCODE_CWD = D:\programas\vs code
 # environment
@@ -73,8 +71,7 @@ USERPROFILE = C:\Users\Jo�o Pedro
 # environment
 CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
 # environment
-ALLUSERSPROFILE = 
- C:\ProgramData
+ALLUSERSPROFILE = C:\ProgramData
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -86,7 +83,7 @@ ELECTRON_RUN_AS_NODE = 1
 # automatic
 %F = $(notdir $%)
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_1952_LBWGCXYNASMTBGDY
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_12068_VKZUAQFLRTYCUAYR
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
@@ -106,7 +103,7 @@ VSCODE_AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProce
 # environment
 CHOCOLATEYTOOLSLOCATION = C:\tools
 # environment
-VSCODE_CODE_CACHE_PATH = C:\Users\Jo�o Pedro\AppData\Roaming\Code\CachedData\5554b12acf27056905806867f251c859323ff7e9
+VSCODE_CODE_CACHE_PATH = C:\Users\Jo�o Pedro\AppData\Roaming\Code\CachedData\d6ee99e4c045a6716e5c653d7da8e9ae6f5a8b03
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
@@ -150,7 +147,7 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 142 Stepping 9, GenuineIntel
 # environment
 OS = Windows_NT
 # environment
-VSCODE_IPC_HOOK = \\.\pipe\eae0138d510fc4ada84cadd5395fb695-1.64.0-main-sock
+VSCODE_IPC_HOOK = \\.\pipe\eae0138d510fc4ada84cadd5395fb695-1.64.1-main-sock
 # environment
 HOMEPATH = \Users\Jo�o Pedro
 # environment
@@ -170,9 +167,10 @@ SYSTEMROOT = C:\WINDOWS
 # environment
 APPDATA = C:\Users\Jo�o Pedro\AppData\Roaming
 # environment
+__COMPAT_LAYER = RunAsAdmin
+# environment
 TEMP = C:\Users\JOOPED~1\AppData\Local\Temp
-# envir 
-onment
+# environment
 COMSPEC = C:\WINDOWS\system32\cmd.exe
 # default
 MAKEFILES := 
@@ -197,12 +195,11 @@ LANG = C
 # environment
 PROCESSOR_LEVEL = 6
 # environment
-VSCODE_PID = 1952
+VSCODE_PID = 12068
 # environment
 USERDOMAIN_ROAMINGPROFILE = NOTE-JP
 # variable set hash-table stats:
-# Load=93/10 
-24=9%, Rehash=0, Collisions=11/114=10%
+# Load=94/1024=9%, Rehash=0, Collisions=11/115=10%
 
 # Pattern-specific Variable Values
 
@@ -217,12 +214,12 @@ USERDOMAIN_ROAMINGPROFILE = NOTE-JP
 # D:\programas\CLion 2021.2.3\bin (key D:/programas/CLion 2021.2.3/bin, mtime 1637709393): 34 files, no impossibilities.
 # C:\WINDOWS\System32\WindowsPowerShell\v1.0\ (key C:/WINDOWS/System32/WindowsPowerShell/v1.0/, mtime 1620144206): 31 files, no impossibilities.
 # D:\programas\python3.9\ (key D:/programas/python3.9/, mtime 1619547122): 18 files, no impossibilities.
-# . (key d:/facul/aeds/TP_2, mtime 1644280909): 20 files, no impossibilities.
+# . (key d:/facul/aeds/TP_2, mtime 1644285029): 22 files, no impossibilities.
 # C:\Users\Jo�o Pedro\AppData\Local\Pub\Cache\bin (key C:/Users/Jo�o Pedro/AppData/Local/Pub/Cache/bin, mtime 1636299918): 5 files, no impossibilities.
 # C:\Users\Jo�o Pedro\AppData\Roaming\Pub\Cache\bin: could not be stat'd.
 # C:\WINDOWS\System32\OpenSSH\: could not be stat'd.
 # C:\WINDOWS (key C:/WINDOWS, mtime 1642551126): 109 files, no impossibilities.
-# D:\programas\vs code\bin (key D:/programas/vs code/bin, mtime 1643926272): 4 files, no impossibilities.
+# D:\programas\vs code\bin (key D:/programas/vs code/bin, mtime 1644344945): 4 files, no impossibilities.
 # C:\Program Files\heroku\bin (key C:/Program Files/heroku/bin, mtime 1625160717): 4 files, no impossibilities.
 # C:\ProgramData\chocolatey\bin (key C:/ProgramData/chocolatey/bin, mtime 1639581007): 15 files, no impossibilities.
 # D:\src\mingw\bin (key D:/src/mingw/bin, mtime 1639526296): 124 files, no impossibilities.
@@ -241,7 +238,7 @@ USERDOMAIN_ROAMINGPROFILE = NOTE-JP
 # C:\Users\Jo�o Pedro\AppData\Local\GitHubDesktop\bin (key C:/Users/Jo�o Pedro/AppData/Local/GitHubDesktop/bin, mtime 1643723889): 4 files, no impossibilities.
 # D:\src\fvm (key D:/src/fvm, mtime 1627344786): 3 files, no impossibilities.
 
-# 3716 files, no impossibilities in 30 directories.
+# 3718 files, no impossibilities in 30 directories.
 
 # Implicit Rules
 
@@ -338,17 +335,16 @@ run_teste: teste
 
 # No 'vpath' search paths.
 
-# No general ('VPATH' var 
-iable) search path.
+# No general ('VPATH' variable) search path.
 
-# strcache buffers: 7 (6) / strings = 3672 / storage = 54517 B / avg = 14 B
-# current buf: size = 8174 B / used = 5513 B / count = 376 / avg = 14 B
-# other used: total = 46343 B / count = 3296 / avg = 14 B
-# other free: total = 40 B / max = 12 B / min = 3 B / avg = 6 B
+# strcache buffers: 7 (3) / strings = 3674 / storage = 54528 B / avg = 14 B
+# current buf: size = 8174 B / used = 5568 B / count = 379 / avg = 14 B
+# other used: total = 46354 B / count = 3295 / avg = 14 B
+# other free: total = 84 B / max = 26 B / min = 6 B / avg = 14 B
 
-# strcache performance: lookups = 3767 / hit rate = 2%
+# strcache performance: lookups = 3769 / hit rate = 2%
 # hash-table stats:
-# Load=3672/8192=45%, Rehash=0, Collisions=1408/3767=37%
-# Finished Make data base on Mon Feb 07 21:42:47 2022
+# Load=3674/8192=45%, Rehash=0, Collisions=1410/3769=37%
+# Finished Make data base on Tue Feb 08 18:49:27 2022
 
  
