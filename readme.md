@@ -49,10 +49,10 @@ Opcoes:
 1 - Ler arquivo de testes
 ```
 
->[!NOTE]
->
->This is a standard NOTE block.
 
+> [!VIDEO](https://www.youtube.com/watch?v=Q-j_Q-j_Q-j)
+
+>Para gerar o arquivo PDF, é necessário ter instalado o programa `md-to-pdf` , caso não tenha a ferramenta de build de documentação instalada
 
 
 # 
