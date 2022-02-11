@@ -68,7 +68,7 @@ int *selecPerm(int *cidades, int *visitadas, int n)
 }
 
 /* Função que calcula o numero de cidades que não foram visitadas. */
-int calcNaoVisitadas(int *cidades, int numeroDeCidades)
+int calcNaoVisitadas(int *visitadas, int numeroDeCidades)
 {
   // V = cidades nao visitadas
   // contador para quantas cidades nao foram visitadas
@@ -256,7 +256,7 @@ int main()
       {
         vetorVisitadas[i] = 0;
       }
-      nmroCidadesNaoVisitadas = calcNaoVisitadas(vetorCidades, vetorVisitadas, nmroCidades);
+      nmroCidadesNaoVisitadas = calcNaoVisitadas(vetorVisitadas, nmroCidades);
       int *vetorPerm = selecPerm(vetorCidades, vetorVisitadas, nmroCidades);
       // vetor da rota atual
       int *vetorRota;
