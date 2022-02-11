@@ -90,7 +90,6 @@ int main()
   int **matrizDistancias;
   int *vetorDemandas;
   int temRota = 0;
-
   int nmroCaminhoes, capacidadeCaminhoes, nmroCidades, nmroCidadesNaoVisitadas, temEstrada, demandaRota, distanciaRota, distanciaMenorRota, demandaTotal = 0;
 
   do
@@ -132,7 +131,6 @@ int main()
         input();
         break;
       }
-      input();
       GREEN();
       printf("Arquivo lido com sucesso\t (pressione enter para continuar)\n");
       input();
@@ -236,6 +234,11 @@ int main()
       RESETC();
       fclose(file);
 
+      GREEN();
+      printf("INICIANDO A MEDIDA DO TEMPO DE EXECUCAO\n"); 
+      RESETC();
+      clock_t start = clock();
+
       // algoritmo de permutação
 
       #pragma region PERMUTACAO
@@ -277,18 +280,7 @@ int main()
         }
       }
 
-      
-
       int count = 0;
-
-      time_t tempo_inicial, tempo_final;
-      tempo_inicial = 0;
-      tempo_final = 0;
-      // Seta o tempo inicial para 25/05/2011 14:20:35
-      struct tm *tempo_inicial_info = localtime(&tempo_inicial);
-      tempo_inicial = mktime(tempo_inicial_info);
-      
-
       do
       {
         /* vetor que representara cada permutacao. */
@@ -444,7 +436,7 @@ int main()
         
       } while (nmroCidadesNaoVisitadas != 0);
       
-
+      
       // mostra a matriz de rotas
       YELLOW();
       
@@ -471,13 +463,12 @@ int main()
       
 
 #pragma endregion
-      struct tm *tempo_final_info = localtime(&tempo_final);
-      tempo_final = mktime(tempo_final_info);
-
-      // Calcula a diferença de tempo (segundos)
-      double dif = difftime(tempo_final, tempo_inicial);
-      printf("\nTempo de execucao: %.8lf segundos\n", dif);
+        // Calcula a diferença de tempo (segundos)
+      clock_t end = clock();
+      double time_spent = (double)(end - start) / CLOCKS_PER_SEC;
+      printf("\nTempo de execucao: %.8lf segundos\n", time_spent);
       outputfile = fopen("output.txt", "a");
+      fprintf(outputfile, "%d %.8lf\n", nmroCidades-1, time_spent);
       fclose(outputfile);
       input();
       break;
