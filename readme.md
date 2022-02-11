@@ -31,7 +31,8 @@
 | `debug(int)` | `void` | `int debugindex` | Mostra uma mensagem de debug padrão na cor vermelha na ordem do índice passado |
 
 
-### Permuta#### *Funções*
+### Permuta
+#### *Funções*
 | Função | Tipo | Argumentos | Descrição |
 |:-------|:-----:|:----------:|:----------:|
 | `nextPerm(int* , int , int)` | `int` | `int* perm, int n, int k` | Retorna o próximo elemento da permutação |
@@ -47,7 +48,7 @@
 
 ### Definição
 
-> A matriz distância é uma matriz quadrada de números inteiros, onde a linha ``i`` e a coluna ``j`` representam o custo de ir de ``i`` para ``j``.
+> A matriz distância é uma matriz quadrada de números inteiros, onde a linha ``i`` e a coluna ``j`` representam a distância entre ``i`` e ``j``.
 >
 >
 
@@ -216,11 +217,9 @@ char eh_sem_repeticao(int *num, int r)
 >
 > Seguido de um numero Q, que define a capacidade de carga do caminhão.
 > 
-> Seguido de N inteiros que definem a demanda de cada cidade .
->
-> e por fim
->
->
+> As seguintes linhas descrevem
+> as distancias entre as cidades ``i`` e ``j``.
+
 
 ```txt
 4
@@ -293,9 +292,22 @@ Arquivo lido com sucesso         (pressione enter para continuar)
 
 <div style = "page-break-before:always">
  
- # Grafico da media de tempo de execucao
+ # Gráfico do  tempo de execução
+ ## `( tempo x n° Cidades) `
 
   ---
+
+
+
+  ## Considerações 
+
+  >
+  >Foi observado uma acentuação na curva do gráfico a partir do valor de `N = 9`.
+
+  > Os valores abaixo de `N = 9` mantiveram um tempo de execução constantemente baixos.
+
+  >O valor de `N = 11 (10 cidades)`, foi o valor máximo testado devido o alto crescimento de tempo de execução. E não foram testados valores mais altos para `N` pois era esperado um crescimento muito acentuado.
+
 
 ![Grafico](./grafico.png "Grafico de tempo de execucao")
 
