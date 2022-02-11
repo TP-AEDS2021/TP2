@@ -1,5 +1,7 @@
 # TP 2 de Algoritmos e estruturas de dados
 
+---
+
 ## Introdução
 
 - ### [O algoritmo de permutação](#o-algoritmo-de-permutação)
@@ -12,7 +14,11 @@
       - [*Funções*](#funções-1)
 - [Comando para compilar o projeto <a name="compilando-o-projeto"></a>](#comando-para-compilar-o-projeto-)
 - [Compilar a documentação <a name="compilando-a-documentacao"></a>](#compilar-a-documentação-)
-## Módulos <a name="modules"></a>
+
+<div style="page-break-before:always">
+
+
+## Módulos auxiliares <a name="modules"></a>
 
 ---
 ### UTILS
@@ -25,17 +31,19 @@
 | `debug(int)` | `void` | `int debugindex` | Mostra uma mensagem de debug padrão na cor vermelha na ordem do índice passado |
 
 
-### Permuta
-#### *Funções*
-
+### Permuta#### *Funções*
 | Função | Tipo | Argumentos | Descrição |
 |:-------|:-----:|:----------:|:----------:|
 | `nextPerm(int* , int , int)` | `int` | `int* perm, int n, int k` | Retorna o próximo elemento da permutação |
 
 
-<div>
+</div>
+
+<div style="page-break-before:always">
 
 # A matriz distância
+
+---
 
 ### Definição
 
@@ -101,9 +109,11 @@ Distancia entre cada cidade:
 
 </div>
 
+
 <div style="page-break-before:always">
 
 # O algoritmo de permutação
+---
 
 
 
@@ -138,7 +148,13 @@ int *selecPerm(int *cidades, int *visitadas, int n)
   return perm;
 }
 ```
+---
+
+<div style="page-break-before:always">
+
 # Algoritmo que conta as cidades não visitadas
+
+---
 
 ``` C
 /* Função que calcula o numero de cidades que não foram visitadas. */
@@ -157,6 +173,7 @@ int calcNaoVisitadas(int *visitadas, int numeroDeCidades)
 }
 ```
 
+---
 
 </div>
 
@@ -164,6 +181,8 @@ int calcNaoVisitadas(int *visitadas, int numeroDeCidades)
 
 
 # Verificação das repetições do vetor
+
+---
 
 
 ```c
@@ -187,7 +206,11 @@ char eh_sem_repeticao(int *num, int r)
 } 
 ```
 
+---
+
 # O arquivo de testes
+
+---
 
 > O arquivo de teste é um arquivo de texto que contém um numero inteiro positivo N, que define a quantidade de cidades do teste.
 >
@@ -212,13 +235,15 @@ char eh_sem_repeticao(int *num, int r)
 
 ```
 
-</div>
+---
 
-<div style="page-breake-before:always">
+<div style="page-break-before:always">
 
 # O funcionamento do programa
 
-> ### Inicia o programa
+---
+
+>## Inicia o programa
 
 ```
 Opcoes:
@@ -266,7 +291,22 @@ Arquivo lido com sucesso         (pressione enter para continuar)
 
 --- 
 
-## Comando para compilar o projeto <a name="compilando-o-projeto"></a>
+<div style = "page-break-before:always">
+ 
+ # Grafico da media de tempo de execucao
+
+  ---
+
+![Grafico](./grafico.png "Grafico de tempo de execucao")
+
+
+
+</div>
+
+
+<div style="page-break-before:always"></div>
+
+# Comando para compilar o projeto <a name="compilando-o-projeto"></a>
 
 
   <b>Usando Makefile:</b>
@@ -279,7 +319,7 @@ make
 
 
 
-## Compilar a documentação <a name="compilando-a-documentacao"></a>
+# Compilar a documentação <a name="compilando-a-documentacao"></a>
 
 ```bash
     make doc
