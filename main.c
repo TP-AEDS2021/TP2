@@ -89,6 +89,7 @@ int main()
   int **distance;
   int **matrizDistancias;
   int *vetorDemandas;
+  int temRota = 0;
 
   int nmroCaminhoes, capacidadeCaminhoes, nmroCidades, nmroCidadesNaoVisitadas, temEstrada, demandaRota, distanciaRota, distanciaMenorRota, demandaTotal = 0;
 
@@ -349,6 +350,7 @@ int main()
                   }
                 }
                 demandaRota /= r;
+                
                 if (demandaRota == capacidadeCaminhoes)
                 {
                   for (int j = 0; j < r + 1; j++)
@@ -363,26 +365,25 @@ int main()
                   {
                     for (int j = 0; j < r + 1; j++)
                     {
-                      // if(matrizDistancias[vetorRota[j]][vetorRota[j + 1] != -1])
-                      //{
                       distanciaRota += matrizDistancias[vetorRota[j]][vetorRota[j + 1]];
-                      //}
-                      // else if(matrizDistancias[vetorRota[j]][vetorRota[j + 1] == -1])
-                      //{
-
-                      //}
                     }
                     if (distanciaMenorRota == -1)
                     {
+
                       distanciaMenorRota = distanciaRota;
                       for (int j = 0; j < r + 2; j++)
                       {
                         vetorMenorRota[j] = vetorRota[j];
                       }
                     }
+
                     else if (distanciaRota < distanciaMenorRota)
                     {
                       distanciaMenorRota = distanciaRota;
+                      for (int j = 0; j < r + 2; j++)
+                      {
+                        vetorMenorRota[j] = vetorRota[j];
+                      }
                     }
                   }
                 }
@@ -407,6 +408,7 @@ int main()
 
           free(num);
         }
+        if(vetorMenorRota[0] != -1){
         
 
         for (int i = 1; i < nmroCidades; i++)
@@ -421,31 +423,52 @@ int main()
           }
         }
         
-        nmroCidadesNaoVisitadas = calcNaoVisitadas(vetorCidades, nmroCidades);
+        nmroCidadesNaoVisitadas = calcNaoVisitadas(vetorVisitadas, nmroCidades);
         vetorPerm = selecPerm(vetorCidades, vetorVisitadas, nmroCidades);
         for (int i = 0; i < nmroCidades + 1; i++)
         {
           matrizRotas[count][i] = vetorMenorRota[i];
         }
-        debug(nmroCidades);
-        debug(nmroCidadesNaoVisitadas);
 
         count++;
 
+      
+
+        } else {
+          RED();
+          printf("\nNao existem mais rotas possiveis\n");
+          RESETC();
+          temRota = -1;
+          break;
+        }
+        
       } while (nmroCidadesNaoVisitadas != 0);
       
 
       // mostra a matriz de rotas
       YELLOW();
-      printf("\nMatriz de rotas:\n");
-      for (int i = 0; i < nmroCaminhoes; i++)
-      {
-        for (int j = 0; j < nmroCidades + 1; j++)
+      
+      if(temRota != -1){
+        printf("\nVetor de rotas:\n");
+        for (int i = 0; i < nmroCaminhoes; i++)
         {
-          printf("%d ", matrizRotas[i][j]);
+          for (int j = 0; j < nmroCidades + 1; j++)
+          {
+            if (matrizRotas[i][j] != -1)
+            {
+              if (i == 0)
+              {
+                printf("%d ", matrizRotas[i][j]);
+              } else {
+                if(j != 0){
+                  printf("%d ", matrizRotas[i][j]);
+                }
+            }
+          }
         }
-        printf("\n");
       }
+      }
+      
 
 #pragma endregion
       struct tm *tempo_final_info = localtime(&tempo_final);
