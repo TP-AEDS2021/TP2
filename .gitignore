@@ -1,3 +1,9 @@
 *.hgc
 *.exe
+./.vscode
+./env
+graphics.py
+./assets
 main
+**.json
+**.log

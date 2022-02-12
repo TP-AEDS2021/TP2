@@ -1,0 +1,11 @@
+{
+  "makefile.extensionOutputFolder": "./.vscode",
+  "files.associations": {
+    "stdlib.h": "c",
+    "stdbool.h": "c",
+    "random": "c",
+    "algorithm": "c",
+    "iterator": "c",
+    "xutility": "c"
+  }
+}

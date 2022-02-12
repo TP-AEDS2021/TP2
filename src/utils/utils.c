@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
-
+#include "colors.c"
 #ifdef WIN32
 #define cls() system("cls");
 #else
@@ -21,7 +21,16 @@ struct tm *currentTime()
 
 void menu()
 {
+  CYAN();
   puts("Opcoes:");
   puts("0 - Sair");
   puts("1 - Ler arquivo de testes");
+  RESETC();
+}
+void debug(int debugindex)
+{
+
+  RED();
+  printf("Debug: %d\n", debugindex);
+  RESETC();
 }

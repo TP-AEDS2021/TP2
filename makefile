@@ -1,11 +1,16 @@
-all: permuta
+all:
 	gcc -g main.c -o main
 
-permuta:
-	gcc -g ./src/permuta.c -o permuta
-
 clean:
-	del *.o *.exe *.h
+	rm *.o *.exe *.h main *.out
 
-run: all
+run: all 
 	./main
+
+doc:
+	md-to-pdf readme.md --document-title="Documentacao TP 1"
+
+teste: 
+	gcc teste.c -o teste
+run_teste: teste
+	./teste
