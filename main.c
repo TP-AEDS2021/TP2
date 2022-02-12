@@ -248,7 +248,6 @@ int main()
         demandaTotal += vetorDemandas[i];
       }
       nmroCaminhoes = demandaTotal / capacidadeCaminhoes;
-      printf("\nNumero de caminhoes: %d\n", nmroCaminhoes);
       int *vetorCidades = (int *)malloc(sizeof(int) * nmroCidades);
       for (int i = 0; i < nmroCidades; i++) // preenche o vetor com 0 a N-1
       {
@@ -328,9 +327,6 @@ int main()
               vetorRota[0] = 0;
               vetorRota[r + 1] = 0;
               temEstrada = 1;
-              /* Mostra a permutacao na tela se
-               * e somente se `num' nao contem
-               * algarismos repetidos. */
               if (eh_sem_repeticao(num, r))
               {
                 for (int j = 0; j < r; j++)
@@ -343,6 +339,8 @@ int main()
                 }
                 demandaRota /= r;
                 
+                /* verifica se a rota criada é válida */
+
                 if (demandaRota == capacidadeCaminhoes)
                 {
                   for (int j = 0; j < r + 1; j++)
@@ -353,6 +351,7 @@ int main()
                       break;
                     }
                   }
+                  /* se a rota for válida, verifica se é a menor rota */
                   if (temEstrada == 1)
                   {
                     for (int j = 0; j < r + 1; j++)
@@ -381,8 +380,7 @@ int main()
                 }
               }
 
-              /* incrementa o algarismo menos
-               * significativo. */
+              /* incrementa o algarismo menos significativo. */
               num[0]++;
             }
             

@@ -1,5 +1,7 @@
 # TP 2 de Algoritmos e estruturas de dados
 
+---
+
 ## Introdução
 
 - ### [O algoritmo de permutação](#o-algoritmo-de-permutação)
@@ -12,7 +14,11 @@
       - [*Funções*](#funções-1)
 - [Comando para compilar o projeto <a name="compilando-o-projeto"></a>](#comando-para-compilar-o-projeto-)
 - [Compilar a documentação <a name="compilando-a-documentacao"></a>](#compilar-a-documentação-)
-## Módulos <a name="modules"></a>
+
+<div style="page-break-before:always">
+
+
+## Módulos auxiliares <a name="modules"></a>
 
 ---
 ### UTILS
@@ -27,19 +33,22 @@
 
 ### Permuta
 #### *Funções*
-
 | Função | Tipo | Argumentos | Descrição |
 |:-------|:-----:|:----------:|:----------:|
 | `nextPerm(int* , int , int)` | `int` | `int* perm, int n, int k` | Retorna o próximo elemento da permutação |
 
 
-<div>
+</div>
+
+<div style="page-break-before:always">
 
 # A matriz distância
 
+---
+
 ### Definição
 
-> A matriz distância é uma matriz quadrada de números inteiros, onde a linha ``i`` e a coluna ``j`` representam o custo de ir de ``i`` para ``j``.
+> A matriz distância é uma matriz quadrada de números inteiros, onde a linha ``i`` e a coluna ``j`` representam a distância entre ``i`` e ``j``.
 >
 >
 
@@ -101,9 +110,11 @@ Distancia entre cada cidade:
 
 </div>
 
+
 <div style="page-break-before:always">
 
 # O algoritmo de permutação
+---
 
 
 
@@ -138,7 +149,13 @@ int *selecPerm(int *cidades, int *visitadas, int n)
   return perm;
 }
 ```
+---
+
+<div style="page-break-before:always">
+
 # Algoritmo que conta as cidades não visitadas
+
+---
 
 ``` C
 /* Função que calcula o numero de cidades que não foram visitadas. */
@@ -157,6 +174,7 @@ int calcNaoVisitadas(int *visitadas, int numeroDeCidades)
 }
 ```
 
+---
 
 </div>
 
@@ -164,6 +182,8 @@ int calcNaoVisitadas(int *visitadas, int numeroDeCidades)
 
 
 # Verificação das repetições do vetor
+
+---
 
 
 ```c
@@ -187,17 +207,19 @@ char eh_sem_repeticao(int *num, int r)
 } 
 ```
 
+---
+
 # O arquivo de testes
+
+---
 
 > O arquivo de teste é um arquivo de texto que contém um numero inteiro positivo N, que define a quantidade de cidades do teste.
 >
 > Seguido de um numero Q, que define a capacidade de carga do caminhão.
 > 
-> Seguido de N inteiros que definem a demanda de cada cidade .
->
-> e por fim
->
->
+> As seguintes linhas descrevem
+> as distancias entre as cidades ``i`` e ``j``.
+
 
 ```txt
 4
@@ -212,13 +234,15 @@ char eh_sem_repeticao(int *num, int r)
 
 ```
 
-</div>
+---
 
-<div style="page-breake-before:always">
+<div style="page-break-before:always">
 
 # O funcionamento do programa
 
-> ### Inicia o programa
+---
+
+>## Inicia o programa
 
 ```
 Opcoes:
@@ -266,7 +290,35 @@ Arquivo lido com sucesso         (pressione enter para continuar)
 
 --- 
 
-## Comando para compilar o projeto <a name="compilando-o-projeto"></a>
+<div style = "page-break-before:always">
+ 
+ # Gráfico do  tempo de execução
+ ## `( tempo x n° Cidades) `
+
+  ---
+
+
+
+  ## Considerações 
+
+  >
+  >Foi observado uma acentuação na curva do gráfico a partir do valor de `N = 9`.
+
+  > Os valores abaixo de `N = 9` mantiveram um tempo de execução constantemente baixos.
+
+  >O valor de `N = 11 (10 cidades)`, foi o valor máximo testado devido o alto crescimento de tempo de execução. E não foram testados valores mais altos para `N` pois era esperado um crescimento muito acentuado.
+
+
+![Grafico](./grafico.png "Grafico de tempo de execucao")
+
+
+
+</div>
+
+
+<div style="page-break-before:always"></div>
+
+# Comando para compilar o projeto <a name="compilando-o-projeto"></a>
 
 
   <b>Usando Makefile:</b>
@@ -279,7 +331,7 @@ make
 
 
 
-## Compilar a documentação <a name="compilando-a-documentacao"></a>
+# Compilar a documentação <a name="compilando-a-documentacao"></a>
 
 ```bash
     make doc
