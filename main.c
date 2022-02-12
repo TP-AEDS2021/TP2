@@ -100,7 +100,7 @@ int main()
     char option = input();
 
     
-
+    // mostra o menu de opcoes
         switch (option)
     {
     case '0':
@@ -140,7 +140,7 @@ int main()
       while (fgets(buffer, fileStringLength, file) && !ferror(file))
       {
         if (nline == 0)
-        { // Numero de cidades
+        { // Leitura do numero de cidades por arquivo e aloca a matriz
           nmroCidades = atoi(buffer);
           matrizDistancias = (int **)malloc(sizeof(int *) * nmroCidades);
           if (matrizDistancias == NULL)
@@ -170,7 +170,7 @@ int main()
           RESETC();
         }
         else if (nline == 1)
-        { // Capacidade do veiculo
+        { // Leitura da capacidade do caminhao por arquivo
           capacidadeCaminhoes = atoi(buffer);
           if (capacidadeCaminhoes <= 0)
           {
@@ -186,7 +186,7 @@ int main()
         }
         else if (nline == 2)
         {
-          // demanda de cada cidade
+          // Leitura da demanda de cada cidade por arquivo
           int i = 0;
           vetorDemandas = (int *)malloc(sizeof(int) * nmroCidades);
           char *token = strtok(buffer, " ");
@@ -320,6 +320,7 @@ int main()
           {
             for (int i = 0; i < n; i++)
             {
+              // zera as variaveis para uma nova menor rota a ser calculada
               demandaRota = 0;
               distanciaRota = 0;
               free(vetorRota);
@@ -327,9 +328,10 @@ int main()
               vetorRota[0] = 0;
               vetorRota[r + 1] = 0;
               temEstrada = 1;
+              // confere se o aranjo eh sem repeticao
               if (eh_sem_repeticao(num, r))
               {
-                for (int j = 0; j < r; j++)
+                for (int j = 0; j < r; j++) // Executa as permutacoes
                 {
                   vetorRota[j + 1] = vetorPerm[num[j]];
                   for (int k = 0; k < r; k++)
@@ -337,7 +339,7 @@ int main()
                     demandaRota += vetorDemandas[vetorPerm[num[j]]];
                   }
                 }
-                demandaRota /= r;
+                demandaRota /= r; 
                 
                 /* verifica se a rota criada é válida */
 
@@ -351,23 +353,22 @@ int main()
                       break;
                     }
                   }
-                  /* se a rota for válida, verifica se é a menor rota */
                   if (temEstrada == 1)
                   {
+                    /* se a rota for válida, calcula o tamanho da rota */
                     for (int j = 0; j < r + 1; j++)
                     {
                       distanciaRota += matrizDistancias[vetorRota[j]][vetorRota[j + 1]];
                     }
+                    /* verifica se é a menor rota */
                     if (distanciaMenorRota == -1)
-                    {
-
+                    { 
                       distanciaMenorRota = distanciaRota;
                       for (int j = 0; j < r + 2; j++)
                       {
                         vetorMenorRota[j] = vetorRota[j];
                       }
                     }
-
                     else if (distanciaRota < distanciaMenorRota)
                     {
                       distanciaMenorRota = distanciaRota;
@@ -398,9 +399,10 @@ int main()
 
           free(num);
         }
+        /* Verifica se existe uma menor rota */
         if(vetorMenorRota[0] != -1){
         
-
+        /* Verifica quais cidades foram visitadas */
         for (int i = 1; i < nmroCidades; i++)
         {
           if (vetorVisitadas[i] == 0)
@@ -413,6 +415,7 @@ int main()
           }
         }
         
+        /* Cria um novo vetor de cidades para ser permutado, apenas com as cidades que nao foram visitadas */
         nmroCidadesNaoVisitadas = calcNaoVisitadas(vetorVisitadas, nmroCidades);
         vetorPerm = selecPerm(vetorCidades, vetorVisitadas, nmroCidades);
         for (int i = 0; i < nmroCidades + 1; i++)
@@ -422,8 +425,8 @@ int main()
 
         count++;
 
-      
 
+        /* Se nao existirem mais rotas possiveis, mostra uma mensagem de erro */
         } else {
           RED();
           printf("\nNao existem mais rotas possiveis\n");
