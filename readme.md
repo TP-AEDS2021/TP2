@@ -1,4 +1,4 @@
-# TP 2 de Algoritmos e estruturas de dados
+# TP 2 de Algoritmos e Estruturas de Dados
 
 ---
 
